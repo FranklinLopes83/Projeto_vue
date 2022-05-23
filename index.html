@@ -69,7 +69,7 @@
 
     <!-- FUNCIONALIDADE 1: IDADE -->
     <section class="p-3 my-5 col-md-10 shadow mx-auto">
-        <div class="container-fluid py-5 text- center">
+        <div class="container-fluid py-5 text-center">
             <form action="">
                 <div class="d-flex align-items-center">
                     <span class="material-symbols-outlined fs-1 me-2">event</span>
@@ -110,6 +110,24 @@
         </div>
     </section>
 
+    <!--FUNCIONALIDADE 3: VERIFICAR DIA DA SEMANA-->
+    <section class="p-3 my-5 col-md-10 shadow mx-auto">
+        <div class="container-fluid py-5 text-center">
+            <form action="">
+                <div class="d-flex align-items-center">
+                    <span class="material-symbols-outlined fs-1 me-2">date_range</span>
+                    <input type="date" name="" class="form-control form-control-lg" aria-placeholder="Informe uma Data" id="diaSemana" data-bs-placement="top" title="Informe uma data qualquer">
+                    
+                </div>
+
+                <div class="d-flex justify-content-end mt-2">
+                    <button type="submit" class="btn btn-lg btn-primary">Verificar dia da semana</button>
+
+                </div>
+            </form>
+        </div>
+    </section>
+
 
 
 
@@ -117,5 +135,9 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+        const diaSemana = document.querySelector('diaSemana')
+        const tooltip = new bootstrap.Tooltip(diaSemana)
+    </script>
 </body>
 </html>
