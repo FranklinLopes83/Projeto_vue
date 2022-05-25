@@ -9,7 +9,7 @@
      <title>Projeto Sistema com Vue</title>
 </head>
 <body>
-<header>
+<header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-menu">
         <div class="container-fluid">
             <a href="index.html" class="navbar-brand">Empresa FullStack</a>
@@ -88,12 +88,12 @@
         <div class="container-fluid py-5 text-center">
             <form action="">
                 <section class="row">
-                    <div class="col-md-6 d-flex align-items-center">
+                    <div class="col-md-6 d-flex align-items-center mt-2">
                         <span class="material-symbols-outlined fs-1">currency_exchange</span>
                         <input type="text" class="form-control form-control-lg" placeholder="Informe a quantidade de valor em dólar" pattern="[0-9]+(\.([0-9]{2}))?" title="Informe apenas números inteiros ou separados por 2 casas décimais" required>
                     </div>
 
-                    <div class="col-md-6 d-flex align-items-center">
+                    <div class="col-md-6 d-flex align-items-center mt-2">
                         <span class="material-symbols-outlined fs-1">currency_exchange</span>
                         <input type="text" class="form-control form-control-lg" placeholder="Qual a cotação do dólar?" pattern="[0-9]+(\.([0-9]{2}))?" title="Informe apenas números inteiros ou separados por 2 casas décimais" required>
                     </div>
@@ -133,12 +133,12 @@
         <div class="container-fluid py-5 text-center">
             <form action="">
                 <section class="row">
-                    <div class="col-md-6 d-flex align-items-center">
+                    <div class="col-md-6 d-flex align-items-center mt-2">
                         <span class="material-symbols-outlined fs-1 me-2">currency_exchange</span>
                         <input type="text" class="form-control form=control-lg" placeholder="Qual valor você quer calcular?" pattern="[0-9]+(\.([0-9]{2}))?" title="Informe apenas números inteiros ou separados por 2 casas décimais" requerid>
                     </div>
 
-                    <div class="col-md-6 d-flex align-items-center">
+                    <div class="col-md-6 d-flex align-items-center mt-2">
                         <span class="material-symbols-outlined fs-1 me-2">percent</span>
                         <input type="text" class="form-control form-control-lg" placeholder="Qual o valor da porcetagem" pattern="[0-9]+(\.([0-9]{2}))?" title="Informe apenas números inteiros ou separados por 2 casas décimais" required>
                     </div>
@@ -155,7 +155,7 @@
 <!-- CRIANDO MODAL SOBRE -->
 
 <section class="modal fade" id="modalSobre" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Desenvolvedor</h5>
@@ -165,7 +165,20 @@
                 <div class="card">
                     <img src="https://i.stack.imgur.com/YaL3s.jpg" alt="Foto de Perfil" class="card-img-top img-thumbnail rounded-circle mx-auto w-200">
 
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Franklin Lopes</h5>
+                        <p class="card-text text-center">Franklinlopes@hotmail.com</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis iste voluptates natus eius illo maiores quaerat, sed aliquam repellat quos iure nulla ea nesciunt. Placeat deserunt saepe dolore accusantium mollitia?
+                        Omnis culpa voluptatibus reiciendis reprehenderit, velit, repellat iste excepturi temporibus est rem nemo ipsam sit, maiores et! Repudiandae suscipit quas officia? Odio id delectus voluptatum ullam nihil rerum ad corrupti!
+                        Doloribus in sint, accusamus dolorum hic, sunt itaque sapiente dolores incidunt facilis culpa deleniti! Quas voluptatibus voluptatum totam rem, dolorum quasi commodi molestias quibusdam perspiciatis. Odit eveniet maxime fuga quis.
+                        Porro ullam eum reiciendis accusamus reprehenderit quibusdam molestias, fuga debitis tempore? Quo nihil exercitationem reprehenderit inventore, eius repellat. Rerum, quam quidem alias saepe ex atque dolor consequatur asperiores dolores ratione!
+                        Maxime voluptate id vero repellendus non explicabo expedita repudiandae in optio laboriosam voluptates quisquam praesentium minima sunt voluptatibus natus omnis, officia dicta. Eius corporis dignissimos esse maxime eligendi suscipit sequi.</p>
+                    </div>
+
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
             </div>
         </div>
     </div>
