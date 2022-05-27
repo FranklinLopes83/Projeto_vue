@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXEMPLO VUE 2</title>
+</head>
+<body>
+    <section id="app">
+        <h1>Bem Vindo {{nome}}</h1>
+        <!-- A DIRETIVA V-TEXT MOSTRA APENAS O TEXTO NA TAG TODA  -->
+        <p v-text="nome"></p>
+        <!-- A DIRETIVA V-HTML VERIFICA TODAS AS TAGS DENTRO DO TEXTO E RENDERIZA-->
+        <p v-html="texto"></p>
+        <!--  A DIRETIVA V-BIND PERTMITE FAZER A LIGAÇÃO DE ATRIBUTOS EXISTENTE HTML COM VARIAVÉIS DO VUE -->
+        <img v-bind:src="imagem" alt="" style="width: 200px">
+        <img v-bind:src="imagem2" alt="" style="width: 200px">
+        <img v-bind:src="imagem3" alt="" style="width: 200px">
+    </section>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    nome:"Chicó",
+                    texto:"<strong> Desenvolvendor FullStack</strong>",
+                    imagem:"https://wallpaperaccess.com/full/699070.jpg",
+                    imagem2:"https://images-na.ssl-images-amazon.com/images/I/51u521yYA6L.jpg", 
+                    imagem3:"https://cdn.pixabay.com/photo/2014/01/31/15/34/sunset-255528_960_720.jpg"    
+
+            }    
+        }            
+        })
+
+        app.mount("#app")
+    </script>
+</body>
+</html>

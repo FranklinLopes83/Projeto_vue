@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Vue 3</title>
+</head>
+<body>
+    <section id="app">
+
+        <form action="">
+            <input type="text" v-model name="Digitando">
+            <p>{{Digitando}}</p>
+        </form>
+    </section>
+
+
+        <script src="https://unpkg.com/vue@3"></script>
+        <script>
+            const app = Vue.createApp({
+                data(){
+                    return
+                    digitando:""
+                }
+            })
+
+            app.mount{"#app"}
+        </script>
+</body>
+</html>
