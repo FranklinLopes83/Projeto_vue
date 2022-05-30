@@ -13,12 +13,27 @@
         </div>
         <hr>
 
-        <p v-for="elementos in frutas">
-            {{elementos}}
+        <p v-for="(elementos, indice) in frutas">
+            {{indice}} - {{elementos}}
         </p>
         <hr>
         <p v-for="elementos in eletro">
             {{elementos}}
+        </p>
+        <hr>
+
+        <p v-for="(valor, chave, indice) in pessoa">
+            {{indice}} - {{chave}} - {{valor}}
+        </p>
+        <hr>
+
+        <p v-for="items in carros">
+             {{items.marca}} - {{items.modelo}}
+        </p>
+        <hr>
+
+        <p v-for="cont in 10">
+            {{cont}}
         </p>
 
     </section>
@@ -33,6 +48,7 @@
                         "imagens/imagem2.jpg",
                         "imagens/imagem3.jpg"
                 ],
+
                         frutas:[
                         "maçâ",
                         "laranja",
@@ -42,11 +58,25 @@
 
                         eletro:[
                             "Tv",
-                            "Lavadora",
-                            "Cafeteira",
-                            "Forno Microndas",
-                            "Ar condicionado"
+                        "Lavadora",
+                        "Cafeteira",
+                        "Forno Microndas",
+                        "Ar condicionado"
+                        ],
+
+                    // Objeto
+                    pessoa:{
+                        Nome:"Severino Cruz",
+                        Idade:52,
+                        Endereco:"Rua das Grotas",
+                    },
+                        // vetor de objetos
+                        carros:[
+                            {marca:"Porche", modelo:"911"},
+                            {marca:"Fiat", modelo:"Palio"},
+                            {marca:"Ford", modelo:"Focus"}
                         ]
+                    
 
 
                 }
