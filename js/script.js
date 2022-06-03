@@ -17,7 +17,9 @@ const app = Vue.createApp({
             textoInicial:'Olá, Seja Bem Vindo ao Nosso Sistema',
             campoIdade:'', 
             resultado:'',
-            info:''
+            info:'',
+            dolar:'',
+            cotacao:''
         }
     },
     methods:{
@@ -48,7 +50,7 @@ const app = Vue.createApp({
         },
 
         validarIdade(){
-            if (this.campoIdade < 1900 || this.campoIdade > 2050){
+                if (this.campoIdade < 1900 || this.campoIdade > 2050){
                 this.info = "Voce precisa informar um valor entre 1900 e 2050"
                 this.resultado = "" //Irá retirar a mensagem do calculo da idade
                 return  false// Significa que oo usuuario infomou um valor errado.
@@ -59,7 +61,21 @@ const app = Vue.createApp({
                 return true // Sigmifica que o usuario digitou o valor correto
 
             }
-        }
+        },
+        converterDolar(){
+            let padrao = /^[0-9]+(\.([0-9]{2}))?$/
+            if(padrao.test(this.dolar) && padrao.test (this.cotacao)){
+                let resposta = this.dolar * this.cotacao 
+                this.resultado = `U$${this.dolar} convertido para real é R$$ {resposta}`
+                this.info = "" //retirando a mensgem d erro após informa resultado correto
+            }
+
+            else{
+                this.info = "Inserir apenas nýmeros com 2 xasas decimais"
+                this.resultado = ""
+            }
+
+            }
     }
 })
 
