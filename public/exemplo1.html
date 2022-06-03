@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMEÇANDO COM O VUE</title>
+    <title>Começando com Vue</title>
 </head>
 <body>
-    <section id="app">
-        <p>Olá meu nome é {{nome}}</p>
-        <p>Meu Sobrenome é {{sobrenome}}</p>
-        <p>Minha idade é: {{idade}}</p>
-    </section>
-
+   <section id="app">
+        <p>Olá, meu nome é {{ nome }}</p>
+        <p>Meu sobrenome é {{ sobrenome }}</p>
+        <p>Sua idade é {{ idade + idade }}</p>
+   </section>
     <script src="https://unpkg.com/vue@3"></script>
     <script>
         const app = Vue.createApp({
             data(){
                 return{
-                    nome:"Joâo",
-                    sobrenome:"Soares",
-                    idade:25
+                    nome:"Rafael",
+                    sobrenome:"Pinheiro",
+                    idade: 18
                 }
             }
         })
