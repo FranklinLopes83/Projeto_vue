@@ -51,7 +51,7 @@ const app = Vue.createApp({
             if (this.campoIdade < 1900 || this.campoIdade > 2050){
                 this.info = "Voce precisa informar um valor entre 1900 e 2050"
                 this.resultado = "" //Irá retirar a mensagem do calculo da idade
-                return  false// Significa que oo usuuario infomou um valor errado
+                return  false// Significa que oo usuuario infomou um valor errado.
             }
 
             else{
