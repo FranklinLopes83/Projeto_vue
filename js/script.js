@@ -19,7 +19,9 @@ const app = Vue.createApp({
             resultado:'',
             info:'',
             dolar:'',
-            cotacao:''
+            cotacao:'',
+            data:'',
+            statusTolltip: false // Para verificar se o tolltip foi ativado
         }
     },
     methods:{
@@ -66,7 +68,7 @@ const app = Vue.createApp({
             let padrao = /^[0-9]+(\.([0-9]{2}))?$/
             if(padrao.test(this.dolar) && padrao.test (this.cotacao)){
                 let resposta = this.dolar * this.cotacao 
-                this.resultado = `U$${this.dolar} convertido para real é R$$ {resposta}`
+                this.resultado = `U$${this.dolar} convertido para real é R$${resposta}`
                 this.info = "" //retirando a mensgem d erro após informa resultado correto
             }
 
@@ -75,7 +77,33 @@ const app = Vue.createApp({
                 this.resultado = ""
             }
 
+            },
+
+            verificarDiaSemana(){
+                let dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", 'Sabádo', "Domingo"]
+                let diaSemana = new Date(this.data).getDay() // getday() retorna o dia da semanasendo 0 para segunda e 6 para o domingo
+                if(this.data != ""){
+                    this.resultado = `Essa data é ${dias[diaSemana]}`
+                    this.info = ""
+                }
+                else{
+                    this.info = "Informe uma data Valoida"
+                    this.resultado = ""
+                }
+                this.resultado = dias[diaSemana] 
+                
+            },
+
+            ativarTooltip(){
+                if(!this.statusTolltip){
+                    const diaSemana = document.querySelector('#diaSemana')
+                const tooltip = new bootstrap.Tooltip(diaSemana)
+                this.statusTooltip = true
+                }
+                
+
             }
+            
     }
 })
 
