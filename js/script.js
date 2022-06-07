@@ -21,6 +21,7 @@ const app = Vue.createApp({
             dolar:'',
             cotacao:'',
             data:'',
+            porcetagem:'',
             statusTolltip: false // Para verificar se o tolltip foi ativado
         }
     },
@@ -102,7 +103,18 @@ const app = Vue.createApp({
                 }
                 
 
+            },
+
+            calcularDesconto(){
+                let padrao = /^[0-9]+(\.([0-9]{2}))?$/
+            if(padrao.test(this.dolar) && padrao.test (this.cotacao)){
+                let resposta = this.dolar * this.cotacao 
+                this.resultado = `U$${this.dolar} convertido para real é R$${resposta}`
+                this.info = "" //retirando a mensgem d erro após informa resultado correto
+
             }
+
+
             
     }
 })
