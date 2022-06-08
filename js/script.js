@@ -15,14 +15,14 @@ const app = Vue.createApp({
                 desconto : "Calcular  o  resultado  a  partir  de  um  valor  base  e  o percentual de desconto indicados pelo usuário"
             },
             textoInicial:'Olá, Seja Bem Vindo ao Nosso Sistema',
-            campoIdade:'', 
+            campoIdade:'',
             resultado:'',
             info:'',
             dolar:'',
             cotacao:'',
             data:'',
-            porcetagem:'',
-            statusTolltip: false // Para verificar se o tolltip foi ativado
+            valor:'',
+            porcentagem:''
         }
     },
     methods:{
@@ -36,6 +36,9 @@ const app = Vue.createApp({
                 if(itens == elementos){
                     this.bloco[elementos] = true
                     this.textoInicial = this.mensagem[elementos]
+                    this.resultado = "" //resetando as informações do resultado e do info
+                    this.info = ""
+
                 }
                 else{
                     this.bloco[elementos] = false
@@ -46,76 +49,49 @@ const app = Vue.createApp({
             let anoAtual = new Date().getFullYear()// Estou pegando o ano atual
             if(this.validarIdade()){
                 let resposta = anoAtual - this.campoIdade
-            console.log(resposta)
-            this.resultado = `Você possui ${resposta} anos`
+                //console.log(resposta)
+                this.resultado = `Você possui ${resposta} anos` 
             }
             
         },
-
         validarIdade(){
-                if (this.campoIdade < 1900 || this.campoIdade > 2050){
-                this.info = "Voce precisa informar um valor entre 1900 e 2050"
-                this.resultado = "" //Irá retirar a mensagem do calculo da idade
-                return  false// Significa que oo usuuario infomou um valor errado.
+            if(this.campoIdade < 1900 || this.campoIdade > 2050){
+                this.info = "Você precisa informar um valor entre 1900 e 2050"
+                this.resultado = ""// Irá retirar a mensagem do cálculo da idade
+                return false// Significa que o usuário inseriu um valor errado
             }
-
             else{
-                this.info = ""
-                return true // Sigmifica que o usuario digitou o valor correto
-
+               this.info=""
+                return true// Significa que o usuário inseriu um valor correto
             }
         },
         converterDolar(){
-            let padrao = /^[0-9]+(\.([0-9]{2}))?$/
-            if(padrao.test(this.dolar) && padrao.test (this.cotacao)){
-                let resposta = this.dolar * this.cotacao 
-                this.resultado = `U$${this.dolar} convertido para real é R$${resposta}`
-                this.info = "" //retirando a mensgem d erro após informa resultado correto
+            let padrao = /^[0-9]+(\.([0-9]{2}))?$/ //Criando uma expressão regular
+            if(padrao.test(this.dolar) && padrao.test(this.cotacao)){
+                let resposta = this.dolar * this.cotacao
+                this.resultado = `U$${this.dolar} convertido para Real é R$${resposta}`
+                this.info=""// Retirando a mensagem de erro após informar resultado correto
             }
-
             else{
-                this.info = "Inserir apenas nýmeros com 2 xasas decimais"
-                this.resultado = ""
+                this.info = "Informe apenas números inteiros ou separados por ponto com 2 casas decimais"
+                this.resultado=""
             }
-
-            },
-
-            verificarDiaSemana(){
-                let dias = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", 'Sabádo', "Domingo"]
-                let diaSemana = new Date(this.data).getDay() // getday() retorna o dia da semanasendo 0 para segunda e 6 para o domingo
-                if(this.data != ""){
-                    this.resultado = `Essa data é ${dias[diaSemana]}`
-                    this.info = ""
-                }
-                else{
-                    this.info = "Informe uma data Valoida"
-                    this.resultado = ""
-                }
-                this.resultado = dias[diaSemana] 
-                
-            },
-
-            ativarTooltip(){
-                if(!this.statusTolltip){
-                    const diaSemana = document.querySelector('#diaSemana')
-                const tooltip = new bootstrap.Tooltip(diaSemana)
-                this.statusTooltip = true
-                }
-                
-
-            },
-
-            calcularDesconto(){
-                let padrao = /^[0-9]+(\.([0-9]{2}))?$/
-            if(padrao.test(this.dolar) && padrao.test (this.cotacao)){
-                let resposta = this.dolar * this.cotacao 
-                this.resultado = `U$${this.dolar} convertido para real é R$${resposta}`
-                this.info = "" //retirando a mensgem d erro após informa resultado correto
-
+        },
+        calcularDesconto(){
+            let padrao = /^[0-9]+(\.([0-9]{2}))?$/ //Criando uma expressão regular
+            console.log(padrao.test(this.valor))
+            if(padrao.test(this.valor) && padrao.test(this.porcentagem)){
+                let resposta = this.valor * (this.porcentagem / 100)
+                this.resultado = `${this.valor} valor desconto ${resposta}`
+                this.info=""// Retirando a mensagem de erro após informar resultado correto
             }
-
-
+            else{
+                this.info = "Informe apenas números inteiros ou separados por ponto com 2 casas decimais"
+                this.resultado=""
+            }
             
+
+        }
     }
 })
 
