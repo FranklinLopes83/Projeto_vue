@@ -22,8 +22,21 @@ const app = Vue.createApp({
             cotacao:'',
             data:'',
             valor:'',
-            porcentagem:''
+            porcentagem:'',
+            dolarOnline:'',
+            cotacaoOnline:'' //ESSA VARIAVÉL SERÁ UM AÚXILIAR
         }
+    },
+   async mounted(){
+    const url = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
+    try {
+        const resposta = await axios.get(url)
+        let dados = resposta.data
+        //console.log(dados.USDBRL.high)
+        this.cotacaoOnline = dados.USDBRL.high
+    } catch (error) {
+        console.log(`O seguinte erro ocorreu: ${error}`)
+    }
     },
     methods:{
         verificarLink(classe){
@@ -88,11 +101,21 @@ const app = Vue.createApp({
             else{
                 this.info = "Informe apenas números inteiros ou separados por ponto com 2 casas decimais"
                 this.resultado=""
-            }
-            
+            }          
 
+        },
+        trocarCotacao(){
+        //console.log(this.dolarOnline)     
+        if(this.dolarOnline){
+            this.cotacao = Number(this.cotacaoOnline).toFixed(2)
+        }
+        else(
+            this.cotacao = ''
+        ) 
         }
     }
+
+    
 })
 
 app.mount("#app")
